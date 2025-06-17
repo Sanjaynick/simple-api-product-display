@@ -1,0 +1,239 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+body{
+    background-color: rgb(224, 203, 178);
+}
+.container{
+    /* background-color: blanchedalmond; */
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 10px;
+    gap: 10px;
+}
+.product-img{
+    width: 250px;
+    border-radius: 10px;
+    height: 270px;
+}
+.product-con{
+    background-color: white;
+    width: 300px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+     box-shadow: 3px 2px 3px 1px rgba(0,0,0,0.5);
+     border-radius: 10px;
+}
+.content-div{
+    height: 200px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+.title{
+    margin: 10px 0;
+    font-weight: 700;
+    cursor: help;
+}
+.categorys{
+    opacity: 0.5;
+     margin: 10px 0;
+     font-weight: 600;
+}
+.description{
+    margin: 20px 0;
+    font-weight: 600;
+    cursor: help;
+}
+.price-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.price{
+    font-size: 25px;
+    font-weight: 700;
+}
+.rating{
+    background-color: rgb(7, 187, 7);
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+     cursor: help;
+}
+.cart-btn{
+    background-color: rgb(192, 192, 40);
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+.cart-btn:hover{
+    opacity: 0.5;
+}
+
+                                        /* NavBar */
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #2fb0ec;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #24edfc;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+                                    /* Media Query Responsive */
+
+
+@media screen and (max-width: 500px) {
+    body{
+    background-color: rgb(224, 203, 178);
+}
+.container{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 10px;
+    gap: 10px;
+}
+.product-img{
+    width: 100px;
+    border-radius: 10px;
+    height: 100px;
+}
+.product-con{
+    background-color: white;
+    width: 200px;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+     box-shadow: 3px 2px 3px 1px rgba(0, 0, 0, 0.5);
+     border-radius: 10px;
+}
+.content-div{
+    height: 200px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+.title{
+    margin: 10px 0;
+    font-weight: 700;
+    cursor: help;
+    font-size: 14px;
+}
+.categorys{
+    opacity: 0.5;
+     margin: 10px 0;
+     font-weight: 600;
+}
+.description{
+    margin: 20px 0;
+    font-weight: 600;
+    cursor: help;
+    font-size: 14px;
+}
+.price-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.price{
+    font-size: 14px;
+    font-weight: 700;
+}
+.rating{
+    background-color: rgb(7, 187, 7);
+    padding: 3px;
+    color: white;
+    border-radius: 5px;
+     cursor: help;
+     font-size: 14px;
+}
+.cart-btn{
+    background-color: rgb(192, 192, 40);
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+.cart-btn:hover{
+    opacity: 0.5;
+}
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #19b4e4;
+    display: none;
+    text-align: center;
+    width: 100%;
+  }
+  .navbar{
+    width: 91.5%;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
