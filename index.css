@@ -95,7 +95,7 @@ body::-webkit-scrollbar{
   scrollbar-width: none;
   box-shadow: 3px 2px 3px 1px rgba(0,0,0,0.5);
   z-index: 1;
- 
+ top: -140px;
 }
 
                                         /* NavBar */
@@ -108,7 +108,7 @@ body::-webkit-scrollbar{
   padding: 15px 20px;
   background-color: #2fb0ec;
   color: #fff;
-  width: 97%;
+  /* width: 100%; */
 }
 
 .logo {
@@ -149,7 +149,7 @@ body::-webkit-scrollbar{
                                     /* Media Query Responsive */
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 470px) {
     body{
     background-color: rgb(224, 203, 178);
 }
@@ -227,6 +227,7 @@ body::-webkit-scrollbar{
     outline: none;
     cursor: pointer;
     font-weight: 500;
+    position: sticky;
 }
 .cart-btn:hover{
     opacity: 0.5;
@@ -243,9 +244,9 @@ body::-webkit-scrollbar{
     text-align: center;
     width: 100%;
   }
-  .navbar{
+  /* .navbar{
     width: 91.5%;
-  }
+  } */
   .nav-links.active {
     display: flex;
   }
