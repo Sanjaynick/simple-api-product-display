@@ -6,13 +6,17 @@
 body{
     background-color: rgb(224, 203, 178);
 }
+body::-webkit-scrollbar{
+  display: none;
+}
 .container{
-    /* background-color: blanchedalmond; */
     margin: 20px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     padding: 10px;
     gap: 10px;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 .product-img{
     width: 250px;
@@ -40,7 +44,6 @@ body{
 .title{
     margin: 10px 0;
     font-weight: 700;
-    cursor: help;
 }
 .categorys{
     opacity: 0.5;
@@ -50,7 +53,6 @@ body{
 .description{
     margin: 20px 0;
     font-weight: 600;
-    cursor: help;
 }
 .price-div{
     display: flex;
@@ -66,7 +68,6 @@ body{
     padding: 5px;
     color: white;
     border-radius: 5px;
-     cursor: help;
 }
 .cart-btn{
     background-color: rgb(192, 192, 40);
@@ -83,6 +84,20 @@ body{
     opacity: 0.5;
 }
 
+.tool-tip{
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 20px;
+  position: absolute;
+  display: none;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  box-shadow: 3px 2px 3px 1px rgba(0,0,0,0.5);
+}
+
                                         /* NavBar */
 
 
@@ -93,6 +108,7 @@ body{
   padding: 15px 20px;
   background-color: #2fb0ec;
   color: #fff;
+  width: 97%;
 }
 
 .logo {
@@ -236,4 +252,19 @@ body{
   .hamburger {
     display: flex;
   }
+
+  .tool-tip{
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 20px;
+  position: absolute;
+  display: none;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  box-shadow: 3px 2px 3px 1px rgba(0,0,0,0.5);
+}
+
 }

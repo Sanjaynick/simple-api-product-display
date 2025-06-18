@@ -19,8 +19,7 @@ fetch('https://fakestoreapi.com/products')
 
         let titles = document.createElement('p')
         titles.classList.add('title')
-        // titles.innerHTML =` ${products.title.slice(0,1)}...`
-        titles.innerHTML =`<span title="${products.title}">${products.title.slice(0,20)}...</span>`
+        titles.innerHTML =`${products.title.slice(0,20)}...`
 
         let categorys = document.createElement('p')
         categorys.classList.add('categorys')
@@ -29,7 +28,7 @@ fetch('https://fakestoreapi.com/products')
 
        let descriptions = document.createElement('p')
        descriptions.classList.add('description')
-       descriptions.innerHTML = `<span title="${products.description}">${products.description.slice(0,30)}....</span>`
+       descriptions.innerHTML = `${products.description.slice(0,25)}....`
 
         let priceDiv = document.createElement('div')
         priceDiv.classList.add('price-div')
@@ -44,13 +43,23 @@ fetch('https://fakestoreapi.com/products')
         let fullStar = Math.floor(products.rating.rate)
         let emptyStar = 5 - fullStar        
         ratings.innerHTML ='★'.repeat(fullStar) + '☆'.repeat(emptyStar)  + `   ${products.rating.count}`
-        ratings.innerHTML =`<span title="${products.rating.rate}">${'★'.repeat(fullStar)+'☆'.repeat(emptyStar)+`${products.rating.count}`}</span>`
 
         let addCart = document.createElement('button')
         addCart.classList.add('cart-btn')
         addCart.textContent = "Add To Cart"
-        
 
+
+        let toolTip = document.createElement('div')
+        toolTip.classList.add('tool-tip')
+        toolTip.textContent = products.description
+
+        descriptions.addEventListener('click', () => {
+          toolTip.style.display = 'flex'
+          setTimeout(() => {
+          toolTip.style.display = 'none'
+        },2000)
+        })
+        
         imageDiv.appendChild(productImg)
         subContainer.appendChild(imageDiv)
         contentDiv.appendChild(titles)
@@ -59,6 +68,7 @@ fetch('https://fakestoreapi.com/products')
         priceDiv.appendChild(prices)
         priceDiv.appendChild(ratings)
         contentDiv.appendChild(descriptions)
+        contentDiv.appendChild(toolTip)
          contentDiv.appendChild(addCart)
         subContainer.appendChild(contentDiv)
         container.appendChild(subContainer)
