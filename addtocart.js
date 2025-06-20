@@ -1,41 +1,16 @@
-let container = document.querySelector('.container')
-let search = document.querySelector('.search')
-let searchBtn = document.querySelector('.search-btn')
-let logoutBtn = document.querySelector('.logout-btn')
-let userIcon = document.querySelector('.user')
-let logoName = document.querySelector('.username')
+let cartContainer = document.querySelector('.cartContainer')
 
+fetch('http://localhost:3001/addcart')
+.then(res => res.json())
+.then((data) => {
+  let cartRemove = data
 
-userIcon.addEventListener('click', () => {
-  logoutBtn.style.display = 'block'
-  setTimeout(() => {
-    logoutBtn.style.display = 'none'
-  }, 2000)
-})
-
-logoutBtn.addEventListener('click', () => {
-  window.location.href = 'index.html'
-})
-
-
-
-fetch('https://fakestoreapi.com/products')
-  .then(response => response.json())
-  .then((data) => {
-    productList(data)
-
-    searchBtn.addEventListener('click', () => {
-      let filter = data.filter((y) => y.price >= search.value)
-      search.value = ''
-      container.textContent = ''
-      productList(filter)
-    })
-
-  });
-
-function productList(product) {
-  product.map((products) => {
-
+    if(cartRemove.length === 0){
+        cartContainer.textContent = "Your Cart Is Empty"
+    }
+    else{
+        cartContainer.innerHTML = ''
+            data.map((products,index) => {
     let subContainer = document.createElement('div')
     subContainer.classList.add('product-con')
 
@@ -57,12 +32,14 @@ function productList(product) {
     categorys.classList.add('categorys')
     categorys.innerHTML = products.category
 
+
     let descriptions = document.createElement('p')
     descriptions.classList.add('description')
     descriptions.innerHTML = `${products.description.slice(0, 25)}....`
 
     let priceDiv = document.createElement('div')
     priceDiv.classList.add('price-div')
+
 
     let prices = document.createElement('p')
     prices.classList.add('price')
@@ -73,6 +50,11 @@ function productList(product) {
     let fullStar = Math.floor(products.rating.rate)
     let emptyStar = 5 - fullStar
     ratings.innerHTML = '★'.repeat(fullStar) + '☆'.repeat(emptyStar) + `   ${products.rating.count}`
+
+    let addCart = document.createElement('button')
+    addCart.classList.add('cart-btn')
+    addCart.textContent = "Remove"
+
 
     let toolTip = document.createElement('div')
     toolTip.classList.add('tool-tip')
@@ -85,9 +67,9 @@ function productList(product) {
       }, 2000)
     })
 
-    let addCart = document.createElement('p')
-    addCart.classList.add('cart-btn')
-    addCart.innerHTML = "Add To Cart"
+     
+
+   
 
     imageDiv.appendChild(productImg)
     subContainer.appendChild(imageDiv)
@@ -100,35 +82,40 @@ function productList(product) {
     contentDiv.appendChild(addCart)
     contentDiv.appendChild(toolTip)
     subContainer.appendChild(contentDiv)
-    container.appendChild(subContainer)
+    cartContainer.appendChild(subContainer)
 
 
-contentDiv.querySelector('.cart-btn').addEventListener('click', (x) => {
-    x.preventDefault()
-        fetch('http://localhost:3001/addcart', {
-          method: "POST",  
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(products)
-        })
-        .then(res => res.json())
-        .then((data) => {
-        //  alert("Product added to cart")
-         x.preventDefault()
-        })
+    let removeBtn = contentDiv.querySelector('.cart-btn')
+    removeBtn.addEventListener('click', () => {
+      fetch(`http://localhost:3001/addcart/${products.id}`,{
+        method: "DELETE"
+      })
+      .then(res => {
+        if(res.ok){
+          console.log("user deleted successfully");
           
+        }
+        else{
+          console.log("Error");
+          
+        }
+      })
+      console.log(index);
+      
     })
-  })
-}
+    
 
-//  Three lines display on responsive
+    
+})
+    }
+
+   
+
+})
+
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
 hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
-
-
-

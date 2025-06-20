@@ -32,35 +32,5 @@
     <div class="cartContainer" ></div>
     
 </body>
-
-<script>
-    const cartContainer = document.querySelector('.cartContainer');
-    const cartHTML = JSON.parse(localStorage.getItem('cartHTML')) || [];
-
-    if (cartHTML.length === 0) {
-      cartContainer.innerHTML = "<p class=`empty-word`>Your cart is empty.</p>";
-    } else {
-      cartHTML.forEach((html,index) => {
-        const productDiv = document.createElement('div');
-        productDiv.innerHTML = html;
-        productDiv.querySelector('.cart-btn')?.remove(); // Remove add button in cart
-        let removeBtn = document.createElement('button')
-        removeBtn.classList.add('remove-cart-btn')
-        removeBtn.innerHTML = "Remove From Cart"
-         removeBtn.addEventListener('click', () => {
-        cartHTML.splice(index, 1); // Remove item from array
-        localStorage.setItem('cartHTML', JSON.stringify(cartHTML)); // Update storage
-        location.reload(); // Reload page to reflect change
-      });
-
-        productDiv.appendChild(removeBtn)
-        cartContainer.appendChild(productDiv);
-      });
-    }
-    // function clearCart() {
-    //   localStorage.pop('cartHTML');
-    //   location.reload();
-    // }
-  </script>
-<script src="index.js"></script>
+<script src="addtocart.js"></script>
 </html>

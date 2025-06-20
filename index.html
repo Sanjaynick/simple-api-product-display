@@ -4,39 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    <!-- <link rel="stylesheet" href="login.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-    <header>
-      <nav class="navbar">
-    <div class="logo">MySite</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Product</a></li>
-      <li><a href="#">Cart</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-    </header>
+    <div class="message-container" id="message-container">
+        <div class="sub-message-container" id="sub-message-container">
+        <form onsubmit="forgotPassword()">
+            <p class="forgot-process" id="forgot-process">Enter Valid Email !</p>
+        <h2>Enter Your Email For Verification</h2>
+        <input type="text" placeholder="Enter Your Email" id="forgot-email" required>
+        <button type="submit" class="forgot-submit" >Submit</button>
+        <button onclick="cancelShowForgot()">Cancel</button>
+        </form>
+        </div>
 
-    <div class="main-container">
-      <div class="error-msg">Please Enter Valid Username</div>
-    <div class="login-container">
-      <form>
-      <h1>Log In</h1>
-      <input type="text" class="username" placeholder="Enter Username">
-      <input type="password" class="password" placeholder="Enter password">
-      <button type="submit" class="login-btn" >Log In</button>
-      </form>
+        <div class="sub-verification-container" id="sub-verification-container">
+        <form onsubmit="forgotVerification()">
+            <p class="forgot-code" id="forgot-code"></p>
+        <h2>Enter Verification Code</h2>
+        <input type="number" placeholder="000 000 000" id="verification-code" required>
+        <button type="submit" class="forgot-submit">Submit</button>
+        <button onclick="cancelShowForgot()">Cancel</button>
+        </form>
+        </div>
+
+        <div class="sub-repassword-container" id="sub-repassword-container">
+        <form onsubmit="reEnterPassword()">
+            <p class="forgot-repassword" id="forgot-repassword"></p>
+        <h2>Enter Your New Password</h2>
+        <input type="password" placeholder="Enter New Password" id="new-psw" required>
+        <input type="password" placeholder="Re Enter New Password" id="re-new-psw" required>
+        <button type="submit" class="forgot-submit">Submit</button>
+        <button onclick="cancelShowForgot()">Cancel</button>
+        </form>
+        </div>
+
     </div>
+    <p class="error-msg-2" id="error-msg-2"></p>
+    <div class="container" id="container">
+        <div class="sub-container" id="sub-container">
+            <div class="login-content" id="login-content">
+                <form >
+                <h3>LOG IN</h3>
+                
+                <input type="text" placeholder="Enter Email" id="email" required>
+                <input type="password" placeholder="Enter Password" id="password" required >
+                <h3><a href="#" onclick="showForgot()">Forgot Password</a></h3>
+                <div class="word" id="word"></div>
+                <button type="submit" class="login-btn">Log In</button>
+                
+                </form>
+            </div>
+
+            <div class="signin-content" id="signin-content">
+                <form >
+                <h3>SIGN IN</h3>
+                
+                <input type="text" placeholder="Enter User Name" class="user-name all" id="user-name" required>
+                <input type="text" placeholder="Enter Email"  class="user-email " id="user-email" required>
+                <input type="password" placeholder="Enter New Password" class="user-password " id="user-password" required>
+                <input type="password" placeholder="Reenter New Password" class="new-password " id="new-password" required>
+                <div class="words" id="words"></div>
+                <button type="submit" class="singin-btn">Sign In</button>
+                </form>
+            </div>
+        </div>
+        <div class="slider" id="slider">
+            <h2 class="greating">Hi There !</h2>
+            <h2 class="account">Don't have an Account</h2>
+            <button class="sign-btn" id="sign-btn" onclick="changeSlider()"></button>
+            <p class="error-message" id="error-message"></p>
+         </div>
+
     </div>
+
+    <script src="script.js"></script>
 </body>
-<script src="login.js"></script>
-<script src="index.js"></script>
 </html>

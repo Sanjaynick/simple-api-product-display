@@ -1,0 +1,40 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "sanjay",
+      "email": "sanjay123@gmail.com",
+      "password": 1234
+    },
+    {
+      "id": "2",
+      "name": "jeeva",
+      "email": "jeeva123@gmail.com",
+      "password": 4321
+    },
+    {
+      "id": "bb40",
+      "name": "sam",
+      "email": "sam123@gmail.com",
+      "password": 123456
+    },
+    {
+      "id": "6a95",
+      "name": "kannan",
+      "email": "kannan123@gmail.com",
+      "password": 789456
+    },
+    {
+      "id": "f4ad",
+      "name": "java",
+      "email": "java123@gmail.com",
+      "password": 741852
+    },
+    {
+      "id": "45a0",
+      "name": "peter",
+      "email": "peter123@gmail.com",
+      "password": 741852
+    }
+  ]
+}
